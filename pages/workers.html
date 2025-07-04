@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply as Worker – Teja NirmanAI</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    #map {
+      height: 300px;
+      width: 100%;
+      margin: 20px 0;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Teja NirmanAI – Workers Apply & Listing</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="workers.html">Workers</a>
+      <a href="shops.html">Shops</a>
+      <a href="tools.html">Tools</a>
+      <a href="estimator.html">Estimator</a>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>👷 Apply as a Construction Worker</h2>
+
+    <!-- 🔴 Map Section -->
+    <div id="map">Loading map…</div>
+
+    <!-- 🔵 Worker Form -->
+    <form id="workerForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="skill" placeholder="Skill (e.g. Mason, Electrician)" required>
+      <input type="number" id="charge" placeholder="Per Day Charge ₹" required>
+      <input type="text" id="area" placeholder="Your Area / Pincode" required>
+
+      <!-- Hidden GPS fields -->
+      <input type="hidden" id="latitude" name="latitude">
+      <input type="hidden" id="longitude" name="longitude">
+
+      <button type="submit">Apply Now</button>
+    </form>
+  </section>
+
+  <section class="worker-list">
+    <h2>📋 Available Workers Nearby</h2>
+
+    <div id="workerCards">
+      <div class="worker-card">
+        <h3>Raju Kumar</h3>
+        <p>🛠️ Skill: Electrician</p>
+        <p>📍 Area: Brahmapur - 760001</p>
+        <p>💸 Charges: ₹500/day + ₹50 (Platform Fee)</p>
+        <p>📞 Contact: Hidden until hire</p>
+      </div>
+
+      <div class="worker-card">
+        <h3>Sita Devi</h3>
+        <p>🛠️ Skill: Tile Worker</p>
+        <p>📍 Area: Brahmapur - 760002</p>
+        <p>💸 Charges: ₹650/day + ₹65 (Platform Fee)</p>
+        <p>📞 Contact: Hidden until hire</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Teja NirmanAI. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ Dynamic JS -->
+  <script>
+    document.getElementById("workerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const skill = document.getElementById("skill").value;
+      const charge = parseInt(document.getElementById("charge").value);
+      const area = document.getElementById("area").value;
+      const lat = document.getElementById("latitude").value;
+      const lng = document.getElementById("longitude").value;
+
+      const platformFee = Math.round(charge * 0.10);
+      const totalCharge = charge + platformFee;
+
+      const card = `
+        <div class="worker-card">
+          <h3>${name}</h3>
+          <p>🛠️ Skill: ${skill}</p>
+          <p>📍 Area: ${area}</p>
+          <p>💸 Charges: ₹${charge}/day + ₹${platformFee} (Platform Fee)</p>
+          <p>🌐 Location: ${lat}, ${lng}</p>
+          <p>📞 Contact: Hidden until hire</p>
+        </div>
+      `;
+
+      document.getElementById("workerCards").insertAdjacentHTML("beforeend", card);
+      alert("✅ Worker added successfully!");
+      this.reset();
+    });
+
+    // 🔍 Live GPS and Map
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          // Fill hidden form values
+          document.getElementById('latitude').value = lat;
+          document.getElementById('longitude').value = lng;
+
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: { lat, lng },
+          });
+
+          new google.maps.Marker({
+            position: { lat, lng },
+            map,
+            title: "Your Location"
+          });
+        }, () => {
+          document.getElementById("map").innerText = "Location access denied.";
+        });
+      } else {
+        document.getElementById("map").innerText = "Geolocation not supported.";
+      }
+    }
+  </script>
+
+  <!-- ✅ Google Maps API -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOVohMKmhZGRZfCfDUUjm7cElmiBBSapM&callback=initMap">
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TejaNirmanAI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdf6fa; /* baby pink background */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      background: #fff; /* white container */
+      width: 100%;
+      max-width: 600px;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 10px;
+      background: #9333ea; /* header purple */
+      color: white;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #fef9fc; /* very light pink */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      margin-bottom: 10px;
+      max-width: 75%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      line-height: 1.5;
+      word-wrap: break-word;
+      white-space: pre-wrap; /* preserves line breaks and spacing */
+    }
+
+    .user {
+      background: #e9d5ff; /* light purple bubble */
+      color: #4c1d95; /* dark purple text */
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+
+    .bot {
+      background: #bae6fd; /* sky-blue bubble */
+      color: #075985; /* dark blue text */
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background: #f3e8ff; /* light purple input area background */
+      border-top: 1px solid #e9d5ff;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #c084fc;
+      border-radius: 20px;
+      outline: none;
+      background: #fef9fc; /* input box background */
+      color: #4c1d95; /* dark purple text */
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: #9333ea; /* main purple button */
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #7e22ce; /* darker purple on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h1>🧠 TejaNirmanAI</h1>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message here..." />
+      <button onclick="sendMessage()">Ask</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const userInput = document.getElementById('user-input');
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      appendMessage('user', message);
+      userInput.value = '';
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/chat', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({message: message})
+        });
+        const data = await response.json();
+        appendMessage('bot', data.reply);
+      } catch (error) {
+        appendMessage('bot', '⚠️ Error connecting to AI backend.');
+      }
+    }
+
+    function appendMessage(sender, text) {
+      const chatMessages = document.getElementById('chat-messages');
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      // Preserve line breaks and formatting from AI
+      msg.innerHTML = text.replace(/\n/g, "<br>");
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+</body>
+</html>

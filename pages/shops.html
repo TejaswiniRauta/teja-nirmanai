@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nearby Shops – Teja NirmanAI</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .shop-list {
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Nearby Construction Shops</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="workers.html">Workers</a>
+      <a href="shops.html">Shops</a>
+      <a href="tools.html">Tools</a>
+      <a href="estimator.html">Estimator</a>
+    </nav>
+  </header>
+
+  <!-- Google Map -->
+  <div id="map"></div>
+
+  <!-- Shop Info Cards -->
+  <section class="shop-list">
+    <h2>🏬 Local Shops with Construction Materials</h2>
+
+    <div class="shop-card">
+      <h3>BuildMart – Cement & Rods</h3>
+      <p>📍 Gandhi Nagar, Brahmapur</p>
+      <p>📞 +91-9876543210</p>
+      <p>🛒 Cement, Iron Rods, Bricks, Sand</p>
+    </div>
+
+    <div class="shop-card">
+      <h3>Tile World</h3>
+      <p>📍 Gopalpur Road, Brahmapur</p>
+      <p>📞 +91-9823421231</p>
+      <p>🛒 Floor Tiles, Wall Tiles, Adhesive</p>
+    </div>
+
+    <div class="shop-card">
+      <h3>ColorHub Paints</h3>
+      <p>📍 Buxi Bazaar, Brahmapur</p>
+      <p>📞 +91-9988776655</p>
+      <p>🛒 Paints, Brushes, Putty, Rollers</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Teja NirmanAI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function initMap() {
+      navigator.geolocation.getCurrentPosition(position => {
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: userLocation,
+          zoom: 14
+        });
+
+        new google.maps.Marker({
+          position: userLocation,
+          map: map,
+          title: "You are here",
+          icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        });
+
+        const shops = [
+          { name: "BuildMart", lat: userLocation.lat + 0.002, lng: userLocation.lng + 0.003 },
+          { name: "Tile World", lat: userLocation.lat - 0.0025, lng: userLocation.lng + 0.0025 },
+          { name: "ColorHub Paints", lat: userLocation.lat + 0.001, lng: userLocation.lng - 0.002 }
+        ];
+
+        shops.forEach(shop => {
+          new google.maps.Marker({
+            position: { lat: shop.lat, lng: shop.lng },
+            map,
+            title: shop.name,
+            icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+          });
+        });
+
+      }, () => {
+        alert("Location access denied. Map cannot load nearby shops.");
+      });
+    }
+  </script>
+
+  <!-- Replace API key below -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOVohMKmhZGRZfCfDUUjm7cElmiBBSapM&callback=initMap">
+  </script>
+
+</body>
+</html>
+

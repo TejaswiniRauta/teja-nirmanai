@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Worker Payment – Teja NirmanAI</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Worker Payment</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="workers.html">Workers</a>
+      <a href="payment.html">Payment</a>
+    </nav>
+  </header>
+
+  <section class="payment-section">
+    <h2>💳 Final Charges</h2>
+    <div class="payment-box">
+      <label>👷‍♂️ Worker Name: <input type="text" value="Ramesh Kumar" readonly></label>
+      <label>🧱 Work Type: <input type="text" value="Masonry (1 Day)" readonly></label>
+
+      <label>💵 Base Charge: ₹
+        <input type="number" id="baseCharge" value="500">
+      </label>
+
+      <label>⚙️ Platform Fee (10%): ₹<span id="serviceFee">50</span></label>
+      <label>💰 Total Payment: ₹<span id="totalPayment">550</span></label>
+
+      <button id="payBtn">Pay Now via UPI</button>
+    </div>
+
+    <div id="upiBox" class="upi-box" style="display: none; text-align: center;">
+      <h3>Scan & Pay via UPI</h3>
+      <img src="../assets/images/upi-qr-demo.png" alt="UPI QR" style="max-width: 250px; margin: 20px auto;">
+      <p><strong>UPI ID:</strong> tejanirman@upi</p>
+      <p><em>(This is a demo UPI — for testing only)</em></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Teja NirmanAI. All rights reserved.</p>
+  </footer>
+
+  <!-- Payment JS Logic -->
+  <script>
+    const baseChargeInput = document.getElementById("baseCharge");
+    const serviceFeeSpan = document.getElementById("serviceFee");
+    const totalPaymentSpan = document.getElementById("totalPayment");
+    const payBtn = document.getElementById("payBtn");
+    const upiBox = document.getElementById("upiBox");
+
+    baseChargeInput.addEventListener("input", () => {
+      const base = parseFloat(baseChargeInput.value) || 0;
+      const fee = Math.round(base * 0.10);
+      const total = base + fee;
+
+      serviceFeeSpan.textContent = fee;
+      totalPaymentSpan.textContent = total;
+    });
+
+    payBtn.addEventListener("click", () => {
+      upiBox.style.display = "block";
+      alert("🧾 UPI Payment Box Unlocked. Please scan & pay (for testing only)");
+    });
+  </script>
+
+</body>
+</html>

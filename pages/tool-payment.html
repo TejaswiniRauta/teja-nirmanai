@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tool Payment – Teja NirmanAI</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Tool Purchase Payment</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </header>
+
+  <section class="payment-section">
+    <h2>🛠️ Final Purchase Summary</h2>
+    <div class="payment-box">
+      <label>🛠️ Tool Name: <input type="text" id="toolName" readonly></label>
+
+      <label>💵 Tool Price: ₹
+        <input type="number" id="toolPrice" readonly>
+      </label>
+
+      <label>⚙️ Platform Fee (5%): ₹<span id="platformFee"></span></label>
+      <label>💰 Total Payment: ₹<span id="totalPayment"></span></label>
+
+      <button id="payBtn">Pay Now via UPI</button>
+    </div>
+
+    <div id="upiBox" class="upi-box" style="display: none; text-align: center;">
+      <h3>Scan & Pay via UPI</h3>
+      <img src="../assets/images/upi-qr-demo.png" alt="UPI QR" style="max-width: 250px; margin: 20px auto;">
+      <p><strong>UPI ID:</strong> tejanirman@upi</p>
+      <p><em>(This is a demo UPI — for testing only)</em></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Teja NirmanAI. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ Payment JS Logic -->
+  <script>
+    // Fetch tool data from URL params
+    const params = new URLSearchParams(window.location.search);
+    const toolName = params.get('name');
+    const toolPrice = parseFloat(params.get('price')) || 0;
+
+    // Calculate platform fee and total
+    const platformFee = Math.round(toolPrice * 0.05);
+    const totalPayment = toolPrice + platformFee;
+
+    // Fill values
+    document.getElementById("toolName").value = toolName;
+    document.getElementById("toolPrice").value = toolPrice;
+    document.getElementById("platformFee").textContent = platformFee;
+    document.getElementById("totalPayment").textContent = totalPayment;
+
+    // Payment button click
+    const payBtn = document.getElementById("payBtn");
+    const upiBox = document.getElementById("upiBox");
+
+    payBtn.addEventListener("click", () => {
+      upiBox.style.display = "block";
+      alert(`🧾 Payment request placed for ${toolName}. Please scan & pay (demo).`);
+      // ✅ TODO: Integrate backend payment status update route here later
+    });
+  </script>
+
+</body>
+</html>
+

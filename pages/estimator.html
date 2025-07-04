@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Estimator – Teja NirmanAI</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Full House Construction Estimator</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="workers.html">Workers</a>
+      <a href="shops.html">Shops</a>
+      <a href="tools.html">Tools</a>
+      <a href="estimator.html">Estimator</a>
+      <a href="affiliate.html">Affiliate</a>
+      <a href="payment.html">Payment</a>
+    </nav>
+  </header>
+
+  <section class="estimator-form">
+    <h2>🧮 Estimate Your Full House Budget</h2>
+
+    <form id="estimatorForm">
+      <label>📐 Total Plot Area (in sq ft): <input type="number" id="area" required></label>
+      <label>🏠 Bedrooms: <input type="number" id="bedrooms" required></label>
+      <label>🛋️ Drawing Room: <input type="number" id="drawing" required></label>
+      <label>🍽️ Dining Room: <input type="number" id="dining" required></label>
+      <label>🍳 Kitchen: <input type="number" id="kitchen" required></label>
+      <label>🚻 Latrine: <input type="number" id="latrine" required></label>
+      <label>🚽 Attached Bathrooms: <input type="number" id="attached" required></label>
+      <label>🙏 Pooja Room: <input type="number" id="pooja" required></label>
+      <label>🚪 Store Room: <input type="number" id="store" required></label>
+      <label>🪜 No. of Pillars: <input type="number" id="pillars" required></label>
+      <label>🏢 No. of Floors: <input type="number" id="floors" required></label>
+
+      <button type="submit">Estimate Now</button>
+    </form>
+
+    <div id="result" class="result-box" style="display:none;"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Teja NirmanAI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('estimatorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const area = parseFloat(document.getElementById('area').value);
+      const bedrooms = parseInt(document.getElementById('bedrooms').value);
+      const drawing = parseInt(document.getElementById('drawing').value);
+      const dining = parseInt(document.getElementById('dining').value);
+      const kitchen = parseInt(document.getElementById('kitchen').value);
+      const latrine = parseInt(document.getElementById('latrine').value);
+      const attached = parseInt(document.getElementById('attached').value);
+      const pooja = parseInt(document.getElementById('pooja').value);
+      const store = parseInt(document.getElementById('store').value);
+      const pillars = parseInt(document.getElementById('pillars').value);
+      const floors = parseInt(document.getElementById('floors').value);
+
+      // Estimate room-wise contribution to construction area
+      const estimatedArea = (
+        bedrooms * 120 + drawing * 150 + dining * 100 +
+        kitchen * 80 + latrine * 40 + attached * 60 +
+        pooja * 50 + store * 70
+      ) * floors;
+
+      const usedArea = Math.min(area * floors, estimatedArea); // to avoid overestimation
+
+      const cementBags = Math.ceil(usedArea * 0.18);
+      const ironKg = Math.ceil(usedArea * 1.2 + (pillars * 10));
+      const sandTon = Math.ceil(usedArea * 0.012);
+      const budget = usedArea * 1600;
+
+      const resultHTML = `
+        <h3>🏗️ Estimation Results</h3>
+        <p>Usable Built-up Area: <strong>${usedArea} sq ft</strong></p>
+        <p>🧱 Cement Bags: <strong>${cementBags}</strong></p>
+        <p>🔩 Iron Rods: <strong>${ironKg} kg</strong></p>
+        <p>🏖️ Sand: <strong>${sandTon} tons</strong></p>
+        <p>💰 Estimated Cost: <strong>₹${budget.toLocaleString()}</strong></p>
+
+        <h4>🛠️ Material Suggestions</h4>
+        <ul>
+          <li><strong>Cement:</strong> Ultratech PPC / ACC Gold</li>
+          <li><strong>Iron:</strong> Tata Tiscon / JSW Neosteel</li>
+          <li><strong>Sand:</strong> Washed River Sand</li>
+        </ul>
+      `;
+
+      const resultBox = document.getElementById('result');
+      resultBox.innerHTML = resultHTML;
+      resultBox.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
+
