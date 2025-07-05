@@ -1,111 +1,35 @@
 Teja NirmanAI
-Teja NirmanAI is a construction tools and services web application designed to simplify the house construction process for owners, workers, and suppliers.
+Teja NirmanAI is a simple web app concept designed to help people in construction estimate costs, hire workers easily, locate nearby shops for materials, and explore tools for rent or buy. It also includes a basic AI chatbot integration demo (backend not yet deployed).
 
 Overview
-People planning to build their homes often have no idea about the total cost, materials needed, or nearby suppliers. This project aims to solve these problems by providing:
+This project aims to support people who do not have technical knowledge about construction but want to estimate their house construction costs, know required materials, and hire labourers quickly.
 
-Construction Cost Estimator – Calculates estimated cost based on area and shows required materials like cement, rods, sand, etc.
+Key Features
+Home construction cost estimator based on area input
 
-Labour Hire System – Helps workers find nearby work opportunities and allows owners to hire them easily.
+Worker hiring system to connect labourers with homeowners
 
-Shop Locator – Displays nearby shops for construction materials.
+Nearby shop locator for construction materials
 
-Tools Marketplace – Lists construction tools available for purchase or rent.
+Tools booking (rent/buy) for modern construction tools
 
-AI Assistant – Answers user queries instantly for construction-related doubts.
+Integrated AI assistant (using Together.ai) for instant guidance (currently works locally, not deployed)
 
-Features
-Responsive frontend using HTML, CSS, and JavaScript
+Project Status
+The frontend is fully designed and hosted on GitHub Pages as a live demo.
+Backend (Flask + Together.ai integration) is working locally but not deployed live due to free hosting limitations.
 
-Flask backend with Together AI integration for the chatbot
+Future Development Goals
+Deploy backend on Google Cloud or Render for live AI chatbot
 
-Tools price filters, categories, and user ratings
+Integrate UPI payment gateway for tool booking and worker payments
 
-Worker and shop pages with live location maps
+Extend estimator to calculate exact quantity of cement, rods, sand, bricks, and overall budget in today's rates
 
-Payment breakdown system
+Add voice-based AI assistant for easier accessibility
 
-Dark mode toggle
+Enable workers to get live notifications of nearby work requests
 
-SEO optimized pages
-
-Current Status
-Frontend: Completed and hosted live [Add your GitHub Pages link here]
-
-Backend: Developed and tested locally. Live deployment pending due to free cloud limitations.
-
-Future Development
-Fully implement the estimator system with item-wise breakdowns
-
-Live worker booking and verification system
-
-Real-time shop stock and price updates
-
-Online payment gateway integration
-
-Voice-enabled AI assistant for hands-free usage
-
-AI Assistant Details
-Backend: Flask (Python)
-
-Model Provider: Together AI
-
-Integration: togather_io.py handles API communication
-
-Status: Live deployment pending; works perfectly on local server
-
-Project Structure
-arduino
-Copy code
-teja-nirmanai/
-├── frontend/
-│   ├── index.html
-│   ├── ai.html
-│   ├── workers.html
-│   ├── shops.html
-│   ├── tools.html
-│   ├── payment.html
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── main.js
-└── backend/
-    ├── app.py
-    ├── config.py
-    ├── requirements.txt
-    ├── togather_io.py
-    ├── templates/
-    │   └── tools.html
-    └── .gitignore
-How to Run Locally
-Clone the repository:
-
-bash
-Copy code
-git clone https://github.com/TejaswiniRauta/teja-nirmanai-backend.git
-cd teja-nirmanai-backend
-Install dependencies:
-
-nginx
-Copy code
-pip install -r requirements.txt
-Run the server:
-
-nginx
-Copy code
-python app.py
-Open your browser at:
-
-arduino
-Copy code
-http://localhost:5000/
 Author
 Tejaswini Rauta
-[LinkedIn profile link:-https://www.linkedin.com/in/tejaswini-rauta-76a327279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app]
-
-Note
-This project is a demo to showcase full-stack development skills focused on solving real-life construction problems. The backend is fully functional locally and will be deployed live once suitable free hosting is available.
-
-⭐ Thank you for checking out this project.
-
-
+Aspiring full-stack developer with interest in AI-powered solutions for real-life problems.
