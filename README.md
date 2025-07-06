@@ -1,35 +1,37 @@
-Teja NirmanAI
-Teja NirmanAI is a simple web app concept designed to help people in construction estimate costs, hire workers easily, locate nearby shops for materials, and explore tools for rent or buy. It also includes a basic AI chatbot integration demo (backend not yet deployed).
+# Teja NirmanAI
 
-Overview
-This project aims to support people who do not have technical knowledge about construction but want to estimate their house construction costs, know required materials, and hire labourers quickly.
+Teja NirmanAI is a construction tools and services web application concept designed to support people building their homes easily. It helps estimate construction costs, hire labourers, locate nearby shops for materials, and explore tools for rent or buy. It also includes an AI chatbot demo using Together.ai for instant guidance (currently works locally).
 
-Key Features
-Home construction cost estimator based on area input
+## Overview
 
-Worker hiring system to connect labourers with homeowners
+This project aims to empower users without technical knowledge to estimate their home construction cost, understand required materials, hire workers quickly, and plan confidently.
 
-Nearby shop locator for construction materials
+## Key Features
 
-Tools booking (rent/buy) for modern construction tools
+- **Estimator:** Calculate approximate construction costs based on area input (main theme feature).
+- **Worker Hiring:** Homeowners can find labourers, and labourers can find work opportunities nearby.
+- **Shop Locator:** Shows nearest shops for construction materials, making procurement easy.
+- **Tools Booking:** Explore modern tools needed for construction, available for rent or buy.
+- **AI Chatbot:** Integrated AI assistant (Together.ai) for quick answers and guidance. *Currently works locally only.*
 
-Integrated AI assistant (using Together.ai) for instant guidance (currently works locally, not deployed)
+## Project Status
 
-Project Status
-The frontend is fully designed and hosted on GitHub Pages as a live demo.
-Backend (Flask + Together.ai integration) is working locally but not deployed live due to free hosting limitations.
+- **Frontend:** Completed and hosted live as a demo on GitHub Pages.
+- **Backend:** Developed (Flask + Together.ai) and working locally, pending live deployment due to free cloud limitations.
 
-Future Development Goals
-Deploy backend on Google Cloud or Render for live AI chatbot
+## Future Development Goals
 
-Integrate UPI payment gateway for tool booking and worker payments
+- Deploy backend using Google Cloud or Render for a live AI assistant.
+- Integrate UPI payment gateway for tool bookings and worker payments.
+- Extend estimator to calculate detailed cement, rod, sand, bricks quantity with current market rates.
+- Enable voice-based AI assistant for accessibility.
+- Allow workers to get live notifications of nearby work requests.
 
-Extend estimator to calculate exact quantity of cement, rods, sand, bricks, and overall budget in today's rates
+## Author
 
-Add voice-based AI assistant for easier accessibility
+**Tejaswini Rauta**  
+Aspiring full-stack developer passionate about building AI-powered solutions for real-life problems.
 
-Enable workers to get live notifications of nearby work requests
+---
 
-Author
-Tejaswini Rauta
-Aspiring full-stack developer with interest in AI-powered solutions for real-life problems.
+*Thank you for exploring this project.*
