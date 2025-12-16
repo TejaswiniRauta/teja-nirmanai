@@ -97,7 +97,7 @@ This approach allows users to:
 * Avoid overestimation and confusion
 
 ---
-
+```
 ## Project Structure
 
 Teja-NirmanAI
@@ -115,6 +115,7 @@ Teja-NirmanAI
 │   └── icons/
 └── testmap.html
 
+```
 ---
 
 ## Live Demo
