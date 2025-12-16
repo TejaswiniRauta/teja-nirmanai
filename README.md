@@ -2,32 +2,33 @@
 
 # Teja NirmanAI
 
-Teja NirmanAI is a *modern web-based home construction assistance platform* designed to simplify construction planning for users with little or no technical knowledge of construction.
-It combines *cost estimation, AI guidance, and practical tools* to make home construction smarter and more transparent.
+Teja NirmanAI is a modern web-based home construction assistance platform designed to simplify construction planning for users with little or no technical knowledge.
+The platform combines cost estimation, AI guidance, and construction-related utilities into a single, easy-to-use interface.
 
 ---
 
-## Overview
+## Problem Statement
 
-Building a home often involves confusion around cost, materials, labour, and tools.
-Teja NirmanAI aims to solve this problem by providing a *single digital platform* where users can:
+Home construction is complex due to:
 
-* Estimate construction costs
-* Understand material requirements
-* Get AI-based guidance
-* Explore labour and tools (planned features)
+* Lack of cost transparency
+* Confusion about material requirements
+* Difficulty finding workers and tools
+* No technical guidance for non-experts
+
+Teja NirmanAI aims to solve these problems using *web technology + AI assistance*.
 
 ---
 
-## Key Features
+## Features
 
 ### Construction Cost Estimation
 
-* Users enter the built-up area (in square feet)
-* System generates an estimated construction budget
-* Simple and transparent estimation logic
+* User inputs built-up area in square feet
+* Generates approximate construction cost instantly
+* Helps in early budget planning and decision-making
 
-### Material Requirement Calculator (In Progress)
+### Material Requirement Estimation (Under Development)
 
 * Calculates approximate quantities of:
 
@@ -35,32 +36,83 @@ Teja NirmanAI aims to solve this problem by providing a *single digital platform
   * Steel rods
   * Bricks
   * Sand
-* Designed for future integration with live market rates
+* Designed to be extended with real-time market pricing
 
-### Worker Hiring (Planned)
+### AI Chatbot Assistant
 
-* Connect homeowners with nearby skilled labourers
-* Simplifies worker discovery for construction tasks
+* AI-powered chatbot integrated using Together.ai
+* Helps users with:
+
+  * Construction-related questions
+  * Cost estimation doubts
+  * Material planning queries
+* Currently runs locally due to free hosting limitations
+
+### Worker Hiring Module (Planned)
+
+* Connects homeowners with nearby skilled labourers
+* Simplifies workforce discovery for construction work
 
 ### Nearby Material Shops (Planned)
 
-* Helps users locate nearby construction material suppliers
+* Displays nearby construction material shops
 * Reduces dependency on middlemen
 
 ### Tools for Rent or Purchase (Planned)
 
-* Explore modern construction tools
-* Rent or buy tools directly through the platform
+* Browse construction tools
+* Option to rent or buy tools directly from the platform
 
-### AI Chatbot Assistant
+---
 
-* Integrated AI chatbot using Together.ai
-* Assists users with:
+## Technology Stack / Skills Used
 
-  * Construction queries
-  * Cost estimation doubts
-  * Material-related questions
-* Currently works locally due to free hosting limitations
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Backend
+
+* Python
+* Flask (API development)
+
+### AI Integration
+
+* Together.ai (LLM-based chatbot)
+* Prompt-based construction guidance
+
+### Tools & Platforms
+
+* Git & GitHub
+* GitHub Pages (Frontend Hosting)
+* VS Code
+
+---
+
+## Estimation Logic (How It Works)
+
+The cost estimator follows a simple and transparent approach:
+
+Estimated Construction Cost
+= Built-up Area (sq ft) × Average Cost per Sq Ft
+
+This allows users to:
+
+* Quickly understand budget range
+* Avoid contractor overpricing
+* Plan finances before execution
+
+---
+
+## Project Workflow
+
+1. User enters construction area
+2. Estimator calculates approximate budget
+3. User explores materials, tools, and services
+4. AI chatbot assists with construction queries
+5. Future updates will include payments and notifications
 
 ---
 
@@ -68,36 +120,48 @@ Teja NirmanAI aims to solve this problem by providing a *single digital platform
 
 ### Frontend
 
-* Fully developed
-* Hosted on GitHub Pages as a live demo
+* Completed
+* Hosted live on GitHub Pages
 
 ### Backend
 
-* Built using Flask
-* AI chatbot integration working locally
+* Flask-based backend developed
+* AI chatbot functional locally
 * Cloud deployment pending
 
 ### Estimator
 
-* Basic estimator implemented
-* Planned upgrade for real-time market-based pricing
+* Basic version implemented
+* Planned upgrade for real-time material pricing
 
 ---
 
-## Estimation Approach
+## Installation & Setup (Local)
 
-The estimator follows a *clear and user-friendly logic*:
+### Prerequisites
 
-Estimated Cost = Built-up Area (sq ft) × Average Cost per Sq Ft
+* Python 3.9 or above
+* Git installed
 
-This approach allows users to:
+### Steps
 
-* Get an early budget idea
-* Plan finances before contacting contractors
-* Avoid overestimation and confusion
+1. Clone the repository
+   git clone [https://github.com/tejaswinirauta/teja-nirmanai.git](https://github.com/tejaswinirauta/teja-nirmanai.git)
+
+2. Navigate to project directory
+   cd teja-nirmanai
+
+3. Install backend dependencies
+   pip install flask
+
+4. Run backend server
+   python app.py
+
+5. Open index.html in browser for frontend
 
 ---
 ```
+
 ## Project Structure
 
 Teja-NirmanAI
@@ -124,16 +188,14 @@ Teja-NirmanAI
 
 ---
 
-## Future Development Goals
+## Future Enhancements
 
 * Deploy backend on Google Cloud or Render
-* Integrate UPI payment gateway for:
-
-  * Tool bookings
-  * Worker payments
-* Enable voice-based AI assistant
-* Live notification system for nearby workers
-* Exact material calculator using real-time market rates
+* Integrate UPI payment gateway
+* Voice-based AI assistant
+* Live worker notifications
+* Real-time material price integration
+* User authentication and dashboard
 
 ---
 
@@ -141,24 +203,21 @@ Teja-NirmanAI
 
 * First-time home builders
 * Users planning construction budgets
-* People with limited construction knowledge
-* Small-scale residential projects
+* Non-technical users needing guidance
+* Small residential construction projects
 
 ---
 
-## Author
+## Developer 
 
 Tejaswini Rauta
 Aspiring Full-Stack Developer
-Passionate about building *real-life impactful solutions* using AI and web technologies.
+Focused on building real-world, AI-powered solutions using web technologies.
 
 ---
 
 ## License
 
 MIT License
-
----
-
 
 ---
