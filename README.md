@@ -187,6 +187,8 @@ Teja-NirmanAI
 [https://tejaswinirauta.github.io/teja-nirmanai](https://tejaswinirauta.github.io/teja-nirmanai)
 
 
+Below are the demo screenshot showing real-time frontend predictions
+
 ![Frontend Prediction 1]( https://github.com/TejaswiniRauta/teja-nirmanai/blob/main/Screenshot%202025-12-16%20205854.png)
 ![Frontend Prediction 2]( https://github.com/TejaswiniRauta/teja-nirmanai/blob/main/Screenshot%202025-12-16%20210606.png)
 ![Frontend Prediction 3](https://github.com/TejaswiniRauta/teja-nirmanai/blob/main/Screenshot%202025-12-16%20210827.png)
