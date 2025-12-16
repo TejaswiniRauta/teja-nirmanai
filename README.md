@@ -208,9 +208,10 @@ Teja-NirmanAI
 
 ---
 
-## Developer 
+## Developer by
 
-Tejaswini Rauta
+Tejaswini Rauta 
+---
 Aspiring Full-Stack Developer
 Focused on building real-world, AI-powered solutions using web technologies.
 
